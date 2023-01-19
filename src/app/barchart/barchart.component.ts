@@ -10,9 +10,12 @@ import {
   ApexResponsive,
   ApexStroke,
   ApexTitleSubtitle,
+  ApexTooltip,
   ApexXAxis,
+  ApexYAxis,
   ChartComponent,
 } from 'ng-apexcharts';
+import { financial, round } from '../dashboard/data';
 
 export interface ChartOptions {
   titles: ApexTitleSubtitle;
@@ -26,6 +29,9 @@ export interface ChartOptions {
   legend: ApexLegend;
   grid: ApexGrid;
   fill: ApexFill;
+  tooltip: ApexTooltip;
+  yaxis: ApexYAxis;
+  colors: any[];
 }
 
 @Component({
@@ -38,28 +44,17 @@ export class BarchartComponent implements OnInit {
   @ViewChild('chart') chart: ChartComponent;
   constructor() {
     this.chartOptions = {
-      series: [
-        {
-          name: 'PRODUTO A',
-          data: [44, 55, 41, 67, 22, 43, 21, 49],
-        },
-        {
-          name: 'PRODUTO B',
-          data: [13, 23, 20, 8, 13, 27, 33, 12],
-        },
-        {
-          name: 'PRODUTO C',
-          data: [11, 17, 15, 15, 21, 14, 15, 13],
-        },
-      ],
+      series: financial,
       chart: {
         type: 'bar',
         height: 350,
-        stacked: true,
         foreColor: '#ccc',
         toolbar: {
           show: false,
         },
+      },
+      dataLabels: {
+        formatter: round,
       },
       titles: {
         text: 'Financeiro',
@@ -83,23 +78,21 @@ export class BarchartComponent implements OnInit {
           },
         },
       ],
-      xaxis: {
-        categories: [
-          '2011',
-          '2012',
-          '2013',
-          '2014',
-          '2015',
-          '2016',
-          '2017',
-          '2018',
-        ],
-      },
+
       fill: {
+        colors: ['#4CAF50'],
         opacity: 1,
       },
       legend: {
         position: 'bottom',
+      },
+      tooltip: {
+        enabled: true,
+      },
+      yaxis: {
+        labels: {
+          formatter: round,
+        },
       },
     };
   }
