@@ -3,6 +3,7 @@
   color: #777;
   font-family: Montserrat, Arial, sans-serif;
   height: 100vh;
+  max-width: 100vw;
 }
 
 .body-bg {
