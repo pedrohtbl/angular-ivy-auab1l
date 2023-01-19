@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApexAxisChartSeries } from 'ng-apexcharts';
 import { dolar } from '../spark/data';
 import {
   SparkSharedEventsService,
@@ -10,7 +11,8 @@ import {
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  public dataDolarQuotation = dolar;
+  public dataDolarQuotation: ApexAxisChartSeries = dolar;
+  public dolarQuotationValue: number = dolar[0].data.slice(-1)[0].y
 
   constructor(private sparkSharedEventsService: SparkSharedEventsService) {}
 

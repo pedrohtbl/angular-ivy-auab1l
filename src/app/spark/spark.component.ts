@@ -13,7 +13,6 @@ import {
   ChartComponent,
 } from 'ng-apexcharts';
 import { Subscription } from 'rxjs';
-import { dolar } from './data';
 import { SparkSharedEventsService } from './service/spark-shared-events.service';
 
 export interface ChartOptions {
@@ -42,97 +41,93 @@ export class SparkComponent implements OnInit {
 
   @ViewChild('chart') chart: ChartComponent;
   @Input() name: string;
+  @Input() value: any;
   constructor(private sparkSharedEventsService: SparkSharedEventsService) {
     this.subscriptions.push(
-      this.sparkSharedEventsService.getClickEvent().subscribe(
-        data => {
-          this.data = data
-          console.log(this.data)
-        })
+      this.sparkSharedEventsService.getClickEvent().subscribe((data) => {
+        this.chartOptions = {
+          series: data,
+          chart: {
+            height: 80,
+            type: 'line',
+            sparkline: {
+              enabled: true,
+            },
+            dropShadow: {
+              enabled: true,
+              top: 1,
+              left: 1,
+              blur: 2,
+              opacity: 0.2,
+            },
+          },
+          colors: ['#fff'],
+          dataLabels: {
+            enabled: false,
+          },
+          stroke: {
+            curve: 'smooth',
+          },
+          markers: {
+            size: 0,
+          },
+          grid: {
+            padding: {
+              top: 20,
+              bottom: 20,
+              left: 110,
+            },
+            row: {
+              colors: ['transparent'],
+              opacity: 0.5,
+            },
+          },
+          responsive: [
+            {
+              breakpoint: 1080,
+              options: {
+                grid: {
+                  padding: {
+                    top: 20,
+                    bottom: 20,
+                    left: 75,
+                  },
+                },
+              },
+            },
+            {
+              breakpoint: 767,
+              options: {
+                grid: {
+                  padding: {
+                    top: 20,
+                    bottom: 20,
+                    left: 110,
+                  },
+                },
+              },
+            },
+          ],
+          tooltip: {
+            x: {
+              show: true,
+            },
+            y: {
+              title: {
+                formatter: function formatter(val) {
+                  return '';
+                },
+              },
+            },
+            theme: 'dark',
+          },
+          xaxis: {
+            type: 'datetime',
+          },
+        };
+      })
     );
-    this.chartOptions = {
-      series: this.data,
-      chart: {
-        height: 80,
-        type: 'line',
-        sparkline: {
-          enabled: true,
-        },
-        dropShadow: {
-          enabled: true,
-          top: 1,
-          left: 1,
-          blur: 2,
-          opacity: 0.2,
-        },
-      },
-      colors: ['#fff'],
-      dataLabels: {
-        enabled: false,
-      },
-      stroke: {
-        curve: 'smooth',
-      },
-      markers: {
-        size: 0,
-      },
-      grid: {
-        padding: {
-          top: 20,
-          bottom: 20,
-          left: 110,
-        },
-        row: {
-          colors: ['transparent'],
-          opacity: 0.5,
-        },
-      },
-      responsive: [
-        {
-          breakpoint: 1080,
-          options: {
-            grid: {
-              padding: {
-                top: 20,
-                bottom: 20,
-                left: 75,
-              },
-            },
-          },
-        },
-        {
-          breakpoint: 767,
-          options: {
-            grid: {
-              padding: {
-                top: 20,
-                bottom: 20,
-                left: 110,
-              },
-            },
-          },
-        },
-      ],
-      tooltip: {
-        x: {
-          show: true,
-        },
-        y: {
-          title: {
-            formatter: function formatter(val) {
-              return '';
-            },
-          },
-        },
-        theme: 'dark',
-      },
-      xaxis: {
-        type: 'datetime',
-      },
-    };
   }
 
-  ngOnInit() {
-    console.log(this.data);
-  }
+  ngOnInit() {}
 }
