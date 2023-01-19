@@ -38,11 +38,18 @@ export interface ChartOptions {
 export class SparkComponent implements OnInit {
   public chartOptions: Partial<ChartOptions>;
   public subscriptions: Subscription[] = [];
+  public data: ApexAxisChartSeries;
 
   @ViewChild('chart') chart: ChartComponent;
-  @Input() data: ApexAxisChartSeries;
   @Input() name: string;
   constructor(private sparkSharedEventsService: SparkSharedEventsService) {
+    this.subscriptions.push(
+      this.sparkSharedEventsService.getClickEvent().subscribe(
+        data => {
+          this.data = data
+          console.log(this.data)
+        })
+    );
     this.chartOptions = {
       series: this.data,
       chart: {
