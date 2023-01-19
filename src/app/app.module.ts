@@ -8,6 +8,7 @@ import { BarchartComponent } from './barchart/barchart.component';
 import { RadialBarChartComponent } from './radial-bar-chart/radial-bar-chart.component';
 import { LineChartComponent } from './line-chart/line-chart.component';
 import { AreaChartComponent } from './area-chart/area-chart.component';
+import { SparkComponent } from './spark/spark.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, NgApexchartsModule],
@@ -18,6 +19,7 @@ import { AreaChartComponent } from './area-chart/area-chart.component';
     RadialBarChartComponent,
     LineChartComponent,
     AreaChartComponent,
+    SparkComponent,
   ],
   bootstrap: [AppComponent],
 })
