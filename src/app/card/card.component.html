@@ -1,6 +1,7 @@
 <div class="details">
-  <h5>{{ name }}</h5>
+  <h6>{{ name }}</h6>
+  <fa-icon [icon]="icon"></fa-icon>
 </div>
-<div class="value">
-  <h6>R$ {{value}}</h6>
+<div class="value" data-toggle="tooltip" data-placement="top" title="R$ {{value}}">
+  <h6>R$ {{round(value)}}</h6>
 </div>

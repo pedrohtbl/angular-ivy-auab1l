@@ -1,6 +1,7 @@
 .details {
   color: #fff;
   text-align: center;
+  margin-top: 10px;
 }
 
 h1,
@@ -11,10 +12,6 @@ h5,
 h6,
 strong {
   font-weight: 600;
-}
-
-.card {
-  background-color: #2b2d3e;
 }
 
 .card {
@@ -33,9 +30,5 @@ strong {
 
 .shadow {
   box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.08);
-}
-
-.box2 {
-  width: 100%;
 }
 

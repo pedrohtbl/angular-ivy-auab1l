@@ -1,13 +1,16 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {
   ApexChart,
+  ApexFill,
   ApexLegend,
   ApexNonAxisChartSeries,
   ApexPlotOptions,
   ApexStroke,
   ApexTitleSubtitle,
+  ApexTooltip,
   ChartComponent,
 } from 'ng-apexcharts';
+import { round } from '../dashboard/data';
 
 export interface ChartOptions {
   series: ApexNonAxisChartSeries;
@@ -17,6 +20,9 @@ export interface ChartOptions {
   stroke: ApexStroke;
   legend: ApexLegend;
   titles: ApexTitleSubtitle;
+  fill: ApexFill;
+  colors: any[];
+  tooltip: ApexTooltip
 }
 
 @Component({
@@ -27,58 +33,67 @@ export interface ChartOptions {
 export class RadialBarChartComponent implements OnInit {
   @ViewChild('chart') chart: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
+  public profitValue = 35733576.79
 
   constructor() {
     this.chartOptions = {
-      series: [44, 55, 67, 83],
       chart: {
-        height: 350,
+        height: 380,
         type: 'radialBar',
-        foreColor: '#ccc',
+        foreColor: '#FFF'
       },
-      titles:{
-        text: 'Romaneio',
-        align: 'center'
-      },
-      stroke: {
-        lineCap: 'round',
-      },
-      legend: {
-        show: true,
-        floating: true,
-        position: 'right',
-        offsetX: 70,
-        offsetY: 240,
-      },
+
+      series: [42.9],
+      colors: ['#4CAF50'],
       plotOptions: {
         radialBar: {
           hollow: {
-            background: 'transparent',
+            margin: 15,
+            size: '70%',
           },
           track: {
             show: false,
           },
-          startAngle: -180,
-          endAngle: 180,
-
           dataLabels: {
             name: {
-              fontSize: '22px',
+              offsetY: -10,
+              show: true,
+              color: '#FFF',
+              fontSize: '13px',
             },
             value: {
-              fontSize: '16px',
-            },
-            total: {
+              color: '#FFF',
+              fontSize: '30px',
               show: true,
-              label: 'Total',
-              formatter: function (w) {
-                return '250';
-              },
             },
           },
         },
       },
-      labels: ['Produto1', 'Produto2', 'Produto3', 'Produto4'],
+
+      stroke: {
+        lineCap: 'round',
+      },
+      titles: {
+        text: 'Lucro',
+        style:{
+          fontSize: '20'
+        }
+      },
+      labels: ['Lucro'],
+      legend: {
+        show: true,
+        position: 'bottom',
+        fontSize: '16',
+        formatter: (e) => `${e} - R$ ${round(this.profitValue)}`
+      },
+      tooltip:{
+        enabled: true,
+        followCursor: true,
+        theme: 'dark',
+        y: {
+          formatter: (e) => `${e}%`
+        }
+      }
     };
   }
 

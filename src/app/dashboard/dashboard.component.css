@@ -20,13 +20,6 @@ strong {
   font-weight: 600;
 }
 
-body {
-  /*background: linear-gradient(45deg,#3a3a60,#5f5f8e);
-  min-height: 100vh;*/
-}
-
-
-
 .content-area {
   max-width: 1280px;
   margin: 0 auto;
@@ -42,6 +35,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  min-width: 100%;
 }
 
 .shadow {
@@ -68,13 +62,60 @@ body {
 }
 
 .sparkboxes .box2 {
-  background-image: linear-gradient(135deg, #44e604c0 10%, #1f8107 100%);
+  background-image: linear-gradient(135deg, #2ec492 10%, #187a3e 100%);
 }
 
 .sparkboxes .box3 {
-  background-image: linear-gradient(135deg, #ffd3a5 10%, #fd6585 100%);
+  background-image: linear-gradient(135deg, #e2d845 10%, #909e0f 100%);
 }
 
 .sparkboxes .box4 {
-  background-image: linear-gradient(135deg, #ee9ae5 10%, #5961f9 100%);
+  background-image: linear-gradient(135deg, #e97878 10%, #741717 100%);
+}
+
+.small-card{
+  padding-left: 10px;
+  background: transparent;
+  color: #fff;
+  border-left: #c99654 solid 4px;
+}
+
+.output-border{
+  border-left: #b33f37 solid 4px;
+}
+
+.input-border{
+  border-left: #4db43f solid 4px;
+}
+
+.container-icon>p{
+  margin: 0;
+  line-height: 1;
+  font-weight: bold;
+}
+
+.container-icon{
+  display: flex;
+  height: 20px;
+  margin-bottom: 3px;
+}
+
+.container-icon-title{
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+}
+
+.container-icon>p{
+  margin-right: 10px;
+}
+
+.container-value{
+  display: flex;
+  flex-direction: column;
+}
+
+.container-value>span{
+  margin: 0;
+  font-size: 12px;
 }

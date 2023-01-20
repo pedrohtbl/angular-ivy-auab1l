@@ -42,6 +42,18 @@ export const round = (value: number) =>{
   }
 }
 
+export const financialBalance = [
+  {
+    bankBalance: 70239.91,
+    receiveBalance: 889417599.35,
+    payBalance: -375397453.11,
+    profitValue: 35733576.79,
+    profitPercentage: 42.9,
+    dolarDate: '2022-12-06',
+    dolarValue: 5.2396
+  }
+]
+
 export const financial = [
   {
     name: 'Financeiro',

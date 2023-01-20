@@ -10,9 +10,10 @@ import { LineChartComponent } from './line-chart/line-chart.component';
 import { AreaChartComponent } from './area-chart/area-chart.component';
 import { SparkComponent } from './spark/spark.component';
 import { CardComponent } from './card/card.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, NgApexchartsModule],
+  imports: [BrowserModule, FormsModule, NgApexchartsModule, FontAwesomeModule],
   declarations: [
     AppComponent,
     DashboardComponent,
@@ -22,7 +23,6 @@ import { CardComponent } from './card/card.component';
     AreaChartComponent,
     SparkComponent,
     CardComponent,
-    FontAw
   ],
   bootstrap: [AppComponent],
 })

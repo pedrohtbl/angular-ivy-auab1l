@@ -18,45 +18,133 @@
               <app-spark name="Dólar" [value]="dolarQuotationValue"></app-spark>
             </div>
           </div>
-          <app-card
-            class="col-md-3 container box box2"
-            name="Saldo Caixa Banco Atual"
-            [value]="dolarQuotationValue"
-          ></app-card>
 
           <div class="col-md-3">
-            <div class="box box3">
-              <div id="spark3"></div>
-            </div>
+            <app-card
+              class="container box box2"
+              [icon]="cashierBankIcon"
+              name="Saldo Caixa Banco Atual"
+              [value]="bankBalance"
+            ></app-card>
           </div>
 
           <div class="col-md-3">
-            <div class="box box4">
-              <div id="spark4"></div>
-            </div>
+            <app-card
+              class="container box box3"
+              [icon]="cashierBankIcon"
+              name="A Receber"
+              [value]="receiveBalance"
+            ></app-card>
+          </div>
+
+          <div class="col-md-3">
+            <app-card
+              class="container box box4"
+              [icon]="cashierBankIcon"
+              name="A Pagar"
+              [value]="payBalance"
+            ></app-card>
           </div>
         </div>
 
         <div class="row mt-4">
-          <div class="col-md-5">
+          <div class="col-md-6">
             <div class="box shadow mt-4">
               <app-radial-bar-chart></app-radial-bar-chart>
             </div>
           </div>
-          <div class="col-md-7">
+          <div class="col-md-6">
             <div class="box shadow mt-4">
-              <app-line-chart></app-line-chart>
+              <div class="col-md-12">
+                <div class="container-icon-title">
+                  <h4>Romaneios</h4>
+                  <fa-icon [icon]="iconFilter"></fa-icon>
+                </div>
+                <div class="small-card mt-4">
+                  <div class="container-icon">
+                    <p>Peso Líquido Pendente</p>
+                    <fa-icon [icon]="iconWeigth"></fa-icon>
+                  </div>
+                  <div class="container-value">
+                    <span>KG: {{round(romaneio[0].pendingKg)}}</span>
+                    <span>Sacas: {{round(romaneio[0].pendingBags)}}</span>
+                  </div>
+                </div>
+
+                <div class="small-card mt-4">
+                  <div class="container-icon">
+                    <p>Colheita</p>
+                    <fa-icon [icon]="iconTractor"></fa-icon>
+                  </div>
+                  <div class="container-value">
+                    <span>KG: {{round(romaneio[0].harvestKg)}}</span>
+                    <span>Sacas: {{round(romaneio[0].harvestBags)}}</span>
+                  </div>
+                </div>
+
+                <div class="small-card mt-4">
+                  <div class="container-icon">
+                    <p>Sacas Colheita</p>
+                    <fa-icon [icon]="iconLoad"></fa-icon>
+                  </div>
+                  <div class="container-value">
+                    <span>Contagem de Cargas (Sacas): {{round(romaneio[0].harvestLoadCount)}}</span>
+                    <span>Média de Qtde de Sacas por Carga: {{round(romaneio[0].harvestLoadAvgBags)}}</span>
+                  </div>
+                </div>
+
+                <div class="small-card output-border mt-4">
+                  <div class="container-icon">
+                    <p>Sacas Saída</p>
+                    <fa-icon [icon]="iconLoad"></fa-icon>
+                  </div>
+                  <div class="container-value">
+                    <span>Saída (KG): {{round(romaneio[0].outputKg)}}</span>
+                    <span>Saída (Sacas): {{round(romaneio[0].outputBags)}}</span>
+                    <span>Contagem de Cargas (Sacas): {{round(romaneio[0].outputLoadCount)}}</span>
+                    <span>Média de Qtde de Sacas por Carga: {{round(romaneio[0].outputLoadAvgBags)}}</span>
+                  </div>
+                </div>
+
+                <div class="small-card input-border mt-4">
+                  <div class="container-icon">
+                    <p>Sacas Entrada (Exceto Colheita)</p>
+                    <fa-icon [icon]="iconLoad"></fa-icon>
+                  </div>
+                  <div class="container-value">
+                    <span>Saída (KG): {{round(romaneio[0].inputKg)}}</span>
+                    <span>Saída (Sacas): {{round(romaneio[0].inputBags)}}</span>
+                    <span>Contagem de Cargas (Sacas): {{round(romaneio[0].inputLoadCount)}}</span>
+                    <span>Média de Qtde de Sacas por Carga: {{round(romaneio[0].inputLoadAvgBags)}}</span>
+                  </div>
+                </div>
+
+                <div class="small-card mt-4">
+                  <div class="container-icon">
+                    <p>Saldo Depósito</p>
+                    <fa-icon [icon]="iconWareHouse"></fa-icon>
+                  </div>
+                  <div class="container-value">
+                    <span>Sacas Devolvidas: {{round(romaneio[0].returnKg)}}</span>
+                    <span>Saldo Depósito: {{round(romaneio[0].warehouseBalance)}}</span>
+                  </div>
+                </div>
+
+
+
+              </div>
             </div>
           </div>
+
         </div>
 
         <div class="row mt-4">
-          <div class="col-md-5">
+          <div class="col-md-6">
             <div class="box shadow mt-4">
               <app-barchart></app-barchart>
             </div>
           </div>
-          <div class="col-md-7">
+          <div class="col-md-6">
             <div class="box shadow mt-4">
               <app-area-chart></app-area-chart>
             </div>
