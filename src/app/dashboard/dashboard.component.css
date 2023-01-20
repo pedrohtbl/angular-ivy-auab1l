@@ -62,30 +62,30 @@ strong {
 }
 
 .sparkboxes .box2 {
-  background-image: linear-gradient(135deg, #2ec492 10%, #187a3e 100%);
+  background-image: linear-gradient(135deg, #73bd8f 10%, #61f168 100%);
 }
 
 .sparkboxes .box3 {
-  background-image: linear-gradient(135deg, #e2d845 10%, #909e0f 100%);
+  background-image: linear-gradient(135deg, #FFD3A5 10%, #dac761 100%);
 }
 
 .sparkboxes .box4 {
-  background-image: linear-gradient(135deg, #e97878 10%, #741717 100%);
+  background-image: linear-gradient(135deg, #d881a2 10%, #f74848 100%);
 }
 
 .small-card{
   padding-left: 10px;
   background: transparent;
   color: #fff;
-  border-left: #c99654 solid 4px;
+  border-left: #dac761 solid 4px;
 }
 
 .output-border{
-  border-left: #b33f37 solid 4px;
+  border-left: #f74848 solid 4px;
 }
 
 .input-border{
-  border-left: #4db43f solid 4px;
+  border-left: #61f168 solid 4px;
 }
 
 .container-icon>p{

@@ -44,7 +44,7 @@ export class RadialBarChartComponent implements OnInit {
       },
 
       series: [42.9],
-      colors: ['#4CAF50'],
+      colors: ['#61f168'],
       plotOptions: {
         radialBar: {
           hollow: {
