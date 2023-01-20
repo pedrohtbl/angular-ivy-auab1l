@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ApexAxisChartSeries } from 'ng-apexcharts';
-import { dolar, financialBalance } from './data';
+import { balance, dolar, financialBalance } from './data';
 import { SparkSharedEventsService } from '../spark/service/spark-shared-events.service';
 import { faFilter, faSackDollar, faTractor, faTruckRampBox, faWarehouse, faWeightScale } from '@fortawesome/free-solid-svg-icons';
+import { SparkBankBalanceSharedEventsService } from '../spark-bank-balance/service/spark-shared-events.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,10 +12,16 @@ import { faFilter, faSackDollar, faTractor, faTruckRampBox, faWarehouse, faWeigh
 })
 export class DashboardComponent implements OnInit {
   public dataDolarQuotation: ApexAxisChartSeries = dolar;
-  public cashierBankIcon = faSackDollar
   public dolarQuotationValue: number = Number(
     dolar[0].data.slice(-1)[0].y.toFixed(3)
   );
+
+  public balance: ApexAxisChartSeries = balance;
+  public balanceActual: number = Number(
+    balance[0].data.slice(-1)[0].y.toFixed(3)
+  );
+
+  public cashierBankIcon = faSackDollar
   public bankBalance = financialBalance[0].bankBalance
   public receiveBalance = financialBalance[0].receiveBalance
   public payBalance = financialBalance[0].payBalance
@@ -45,15 +52,23 @@ export class DashboardComponent implements OnInit {
 		}
 	];
 
-  constructor(private sparkSharedEventsService: SparkSharedEventsService) {}
+  constructor(
+    private sparkSharedEventsService: SparkSharedEventsService,
+    private sparkBankBalanceSharedEventsService: SparkBankBalanceSharedEventsService
+    ) {}
 
   ngOnInit() {
     this.sendData();
+    this.sendDataBalance()
     console.log('dashboard');
   }
 
   public sendData() {
     this.sparkSharedEventsService.sendClickEvent(this.dataDolarQuotation);
+  }
+
+  public sendDataBalance() {
+    this.sparkBankBalanceSharedEventsService.sendClickEvent(this.balance);
   }
 
   public round = (value: number) =>{

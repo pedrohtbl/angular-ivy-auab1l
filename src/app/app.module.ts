@@ -11,6 +11,7 @@ import { AreaChartComponent } from './area-chart/area-chart.component';
 import { SparkComponent } from './spark/spark.component';
 import { CardComponent } from './card/card.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SparkBankBalanceComponent } from './spark-bank-balance/spark-bank-balance.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, NgApexchartsModule, FontAwesomeModule],
@@ -22,6 +23,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     LineChartComponent,
     AreaChartComponent,
     SparkComponent,
+    SparkBankBalanceComponent,
     CardComponent,
   ],
   bootstrap: [AppComponent],

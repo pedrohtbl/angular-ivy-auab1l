@@ -13,9 +13,16 @@
       <div class="text-right mt-3 mb-3 d-fixed"></div>
       <div class="main">
         <div class="row sparkboxes mt-4">
+
           <div class="col-md-3">
             <div class="box box1">
               <app-spark name="Dólar" [value]="dolarQuotationValue"></app-spark>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="box box2">
+              <app-spark-bank-balance name="Saldo" [value]="round(balanceActual)"></app-spark-bank-balance>
             </div>
           </div>
 

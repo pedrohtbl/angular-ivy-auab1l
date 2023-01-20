@@ -26,6 +26,34 @@ export const dolar = [
   },
 ];
 
+export const balance = [
+  {
+    name: 'Saldo',
+    data: [
+      {
+        y: 90000,
+        x: '2023-01-15',
+      },
+      {
+        y: 90000,
+        x: '2023-01-16',
+      },
+      {
+        y: 112497.11,
+        x: '2023-01-17',
+      },
+      {
+        y: 89715.32,
+        x: '2023-01-18',
+      },
+      {
+        y: 70239.91,
+        x: '2023-01-19',
+      },
+    ],
+  },
+];
+
 export const round = (value: number) =>{
   const positiveValue = Math.abs(value)
 
