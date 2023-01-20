@@ -55,12 +55,12 @@
           </div>
           <div class="col-md-6">
             <div class="box shadow mt-4">
-              <div class="col-md-12">
+              <ul class="col-md-12">
                 <div class="container-icon-title">
                   <h4>Romaneios</h4>
                   <fa-icon [icon]="iconFilter"></fa-icon>
                 </div>
-                <div class="small-card mt-4">
+                <li class="small-card mt-4">
                   <div class="container-icon">
                     <p>Peso Líquido Pendente</p>
                     <fa-icon [icon]="iconWeigth"></fa-icon>
@@ -69,9 +69,9 @@
                     <span>KG: {{round(romaneio[0].pendingKg)}}</span>
                     <span>Sacas: {{round(romaneio[0].pendingBags)}}</span>
                   </div>
-                </div>
+                </li>
 
-                <div class="small-card mt-4">
+                <li class="small-card mt-4">
                   <div class="container-icon">
                     <p>Colheita</p>
                     <fa-icon [icon]="iconTractor"></fa-icon>
@@ -80,9 +80,9 @@
                     <span>KG: {{round(romaneio[0].harvestKg)}}</span>
                     <span>Sacas: {{round(romaneio[0].harvestBags)}}</span>
                   </div>
-                </div>
+                </li>
 
-                <div class="small-card mt-4">
+                <li class="small-card mt-4">
                   <div class="container-icon">
                     <p>Sacas Colheita</p>
                     <fa-icon [icon]="iconLoad"></fa-icon>
@@ -91,9 +91,9 @@
                     <span>Contagem de Cargas (Sacas): {{round(romaneio[0].harvestLoadCount)}}</span>
                     <span>Média de Qtde de Sacas por Carga: {{round(romaneio[0].harvestLoadAvgBags)}}</span>
                   </div>
-                </div>
+                </li>
 
-                <div class="small-card output-border mt-4">
+                <li class="small-card output-border mt-4">
                   <div class="container-icon">
                     <p>Sacas Saída</p>
                     <fa-icon [icon]="iconLoad"></fa-icon>
@@ -104,11 +104,11 @@
                     <span>Contagem de Cargas (Sacas): {{round(romaneio[0].outputLoadCount)}}</span>
                     <span>Média de Qtde de Sacas por Carga: {{round(romaneio[0].outputLoadAvgBags)}}</span>
                   </div>
-                </div>
+                </li>
 
-                <div class="small-card input-border mt-4">
+                <li class="small-card input-border mt-4">
                   <div class="container-icon">
-                    <p>Sacas Entrada (Exceto Colheita)</p>
+                    <p>Sacas Entrada</p>
                     <fa-icon [icon]="iconLoad"></fa-icon>
                   </div>
                   <div class="container-value">
@@ -117,9 +117,9 @@
                     <span>Contagem de Cargas (Sacas): {{round(romaneio[0].inputLoadCount)}}</span>
                     <span>Média de Qtde de Sacas por Carga: {{round(romaneio[0].inputLoadAvgBags)}}</span>
                   </div>
-                </div>
+                </li>
 
-                <div class="small-card mt-4">
+                <li class="small-card mt-4">
                   <div class="container-icon">
                     <p>Saldo Depósito</p>
                     <fa-icon [icon]="iconWareHouse"></fa-icon>
@@ -128,11 +128,9 @@
                     <span>Sacas Devolvidas: {{round(romaneio[0].returnKg)}}</span>
                     <span>Saldo Depósito: {{round(romaneio[0].warehouseBalance)}}</span>
                   </div>
-                </div>
+                </li>
 
-
-
-              </div>
+              </ul>
             </div>
           </div>
 

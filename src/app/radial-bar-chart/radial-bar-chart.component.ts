@@ -38,7 +38,7 @@ export class RadialBarChartComponent implements OnInit {
   constructor() {
     this.chartOptions = {
       chart: {
-        height: 380,
+        height: 480,
         type: 'radialBar',
         foreColor: '#FFF'
       },
@@ -89,6 +89,7 @@ export class RadialBarChartComponent implements OnInit {
       tooltip:{
         enabled: true,
         followCursor: true,
+        fillSeriesColor: false,
         theme: 'dark',
         y: {
           formatter: (e) => `${e}%`
