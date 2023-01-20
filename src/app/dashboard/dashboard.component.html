@@ -15,22 +15,21 @@
         <div class="row sparkboxes mt-4">
           <div class="col-md-3">
             <div class="box box1">
-              <app-spark 
-              name="Dólar"
-              [value]="dolarQuotationValue"
-              ></app-spark>
+              <app-spark name="Dólar" [value]="dolarQuotationValue"></app-spark>
             </div>
           </div>
-          <div class="col-md-3">
-            <div class="box box2">
-              <app-spark ></app-spark>
-            </div>
-          </div>
+          <app-card
+            class="col-md-3 container box box2"
+            name="Saldo Caixa Banco Atual"
+            [value]="dolarQuotationValue"
+          ></app-card>
+
           <div class="col-md-3">
             <div class="box box3">
               <div id="spark3"></div>
             </div>
           </div>
+
           <div class="col-md-3">
             <div class="box box4">
               <div id="spark4"></div>

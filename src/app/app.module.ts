@@ -21,7 +21,8 @@ import { CardComponent } from './card/card.component';
     LineChartComponent,
     AreaChartComponent,
     SparkComponent,
-    CardComponent
+    CardComponent,
+    FontAw
   ],
   bootstrap: [AppComponent],
 })

@@ -25,6 +25,8 @@ body {
   min-height: 100vh;*/
 }
 
+
+
 .content-area {
   max-width: 1280px;
   margin: 0 auto;
@@ -33,6 +35,13 @@ body {
 .box {
   background-color: #2b2d3e;
   padding: 25px 20px;
+}
+
+.container{
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .shadow {
@@ -59,7 +68,7 @@ body {
 }
 
 .sparkboxes .box2 {
-  background-image: linear-gradient(135deg, #2afadf 10%, #4c83ff 100%);
+  background-image: linear-gradient(135deg, #44e604c0 10%, #1f8107 100%);
 }
 
 .sparkboxes .box3 {
