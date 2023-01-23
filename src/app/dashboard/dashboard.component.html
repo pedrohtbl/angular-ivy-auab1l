@@ -325,11 +325,9 @@
         <div class="row mt-4">
           <div class="col-md-6">
             <div class="box shadow mt-4">
-              <app-radial-bar-chart
-                [value]="value"
-                [name]="negotiationName"
-                [percentage]="percentage"
-              ></app-radial-bar-chart>
+              <app-charts-negotiations
+                [series]="mountPercentageNegotiation()"
+              ></app-charts-negotiations>
             </div>
           </div>
           <div class="col-md-6">
@@ -404,7 +402,66 @@
           </div>
         </div>
 
+        <div class="row mt-4">
+          <h4>Negociações</h4>
+        </div>
 
+        <div class="row mt-4">
+          <div class="col-md-3">
+            <app-card
+              class="container box spark-box box1"
+              [icon]="iconReal"
+              name="Preço Médio das Negociações (Reais)"
+              [value]="negotiation[0].avgPriceBRL"
+            ></app-card>
+          </div>
+          <div class="col-md-3">
+            <app-card
+              class="container box spark-box box1"
+              [icon]="iconDolar"
+              name="Preço Médio das Negociações (Dólar)"
+              [value]="negotiation[0].avgPriceUSD"
+            ></app-card>
+          </div>
+        </div>
+
+        <div class="row mt-4">
+          <h5>Negociações de Sacas</h5>
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-3">
+            <app-card
+              class="container box spark-box box4"
+              [icon]="iconDolar"
+              name="Sacas Vendidas"
+              [value]="negotiation[0].bagsSold"
+            ></app-card>
+          </div>
+          <div class="col-md-3">
+            <app-card
+              class="container box spark-box box1"
+              [icon]="iconWareHouse"
+              name="Sacas Estoque"
+              [value]="negotiation[0].bagsInStock"
+            ></app-card>
+          </div>
+          <div class="col-md-3">
+            <app-card
+              class="container box spark-box box2"
+              [icon]="iconLoad"
+              name="Sacas Entregues"
+              [value]="negotiation[0].bagsDelivered"
+            ></app-card>
+          </div>
+          <div class="col-md-3">
+            <app-card
+              class="container box spark-box box3"
+              [icon]="iconLoad"
+              name="Sacas a entregar"
+              [value]="negotiation[0].bagsToDeliver"
+            ></app-card>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -67,9 +67,8 @@ export class DashboardComponent implements OnInit {
 		}
 	]
 
-  public value = this.negotiation[0].bagsDelivered
-  public percentage = ((this.negotiation[0].bagsDelivered *100)/this.negotiation[0].bagsSold).toFixed(2)
-  public negotiationName = 'Sacas Entregues' 
+  public percentageToDeliver = ((this.negotiation[0].bagsToDeliver *100)/this.negotiation[0].bagsSold).toFixed(2)
+  public percentageDelivered = ((this.negotiation[0].bagsDelivered *100)/this.negotiation[0].bagsSold).toFixed(2)
 
   constructor(
     private sparkSharedEventsService: SparkSharedEventsService,
@@ -80,6 +79,10 @@ export class DashboardComponent implements OnInit {
     this.sendData();
     this.sendDataBalance()
     console.log('dashboard');
+  }
+
+  public mountPercentageNegotiation (){
+    return [this.percentageToDeliver, this.percentageDelivered]
   }
 
   public sendData() {

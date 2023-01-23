@@ -5,6 +5,7 @@ import {
   ApexLegend,
   ApexNonAxisChartSeries,
   ApexPlotOptions,
+  ApexResponsive,
   ApexStroke,
   ApexTitleSubtitle,
   ApexTooltip,
@@ -22,7 +23,8 @@ export interface ChartOptions {
   titles: ApexTitleSubtitle;
   fill: ApexFill;
   colors: any[];
-  tooltip: ApexTooltip
+  tooltip: ApexTooltip;
+  responsive: ApexResponsive[]
 }
 
 @Component({
@@ -34,46 +36,155 @@ export class ChartsNegotiationsComponent implements OnInit {
   @ViewChild('chart') chart: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
 
+  @Input() series: any;
+
   constructor() {
-    this.chartOptions = {
-      chart: {
-        type: 'radialBar',
-        height: 350,
-        width: 380,
-      },
-      plotOptions: {
-        radialBar: {
-          inverseOrder: true,
-          hollow: {
-            margin: 5,
-            size: '48%',
-            background: 'transparent',
-    
-          },
-          track: {
-            show: false,
-          },
-          startAngle: -180,
-          endAngle: 180
-    
-        },
-      },
-      stroke: {
-        lineCap: 'round'
-      },
-      series: [71, 63, 77],
-      labels: ['June', 'May', 'April'],
-      legend: {
-        show: true,
-        floating: true,
-        position: 'right',
-        offsetX: 70,
-        offsetY: 240
-      },
-    }
+   
    }
 
   ngOnInit() {
+    this.chartOptions = {
+      chart: {
+        type: 'donut',
+        width: 500,
+        foreColor: '#FFF',
+      },
+      colors: ['#dac761', '#61f168'],
+      responsive: [{
+        breakpoint: 1120,
+        options: {
+          chart: {
+            width: 400
+          },
+          legend: {
+            show: true,
+            position: 'right',
+            offsetY: 260,
+            offsetX: -40,
+            fontSize: 11
+          },
+          labels: ['Sacas A Entregar', 'Sacas Entregues'],
+        }
+      },
+      {
+        breakpoint: 950,
+        options: {
+          chart: {
+            width: 350,
+          },
+          legend: {
+            show: true,
+            position: 'bottom',
+            offsetX: 190,
+            offsetY: 5,
+            width: 170,
+            fontSize: 10,
+          },
+          labels: ['Sacas A Entregar', 'Sacas Entregues'],
+        }
+      },
+      {
+        breakpoint: 830,
+        options: {
+          chart: {
+            width: 300,
+          },
+          legend: {
+            show: true,
+            position: 'left',
+            offsetY: 190,
+            offsetX: -30,
+            fontSize: 9
+          },
+          labels: ['Sacas A Entregar', 'Sacas Entregues'],
+        }
+      },
+      {
+        breakpoint: 768,
+        options: {
+          chart: {
+            width: 500,
+          },
+          legend: {
+            show: true,
+            position: 'bottom',
+            offsetX: 300,
+            offsetY: 0,
+            fontSize: 12
+          },
+          labels: ['Sacas A Entregar', 'Sacas Entregues'],
+        }
+      },
+      {
+        breakpoint: 560,
+        options: {
+          chart: {
+            width: 400,
+          },
+          legend: {
+            show: true,
+            position: 'bottom',
+            offsetX: 235,
+            offsetY: 0,
+          },
+          labels: ['Sacas A Entregar', 'Sacas Entregues'],
+        }
+      },
+      {
+        breakpoint: 430,
+        options: {
+          chart: {
+            width: 300,
+          },
+          legend: {
+            show: true,
+            position: 'bottom',
+            offsetX: 150,
+          },
+          labels: ['A Entregar', 'Entregues'],
+        }
+      },
+      {
+        breakpoint: 340,
+        options: {
+          chart: {
+            width: 200,
+          },
+          legend: {
+            show: true,
+            position: 'bottom',
+            offsetX: 0,
+            offsetY: 8,
+            fontSize: 9,
+          },
+          labels: ['A Entregar', 'Entregues'],
+        }
+      }
+    ],
+      titles: {
+        text: 'Negociações'
+      },
+      plotOptions:{
+        pie:{
+          donut:{
+            size: '70%'
+          }
+        }
+      },
+      series: this.series.map(e => Number(e)),
+      labels: ['Sacas A Entregar', 'Sacas Entregues'],
+      legend: {
+        show: true,
+        floating: true,
+        position: 'left',
+        offsetY: 350,
+        fontSize: '12',
+      },
+      tooltip: {
+        theme: 'dark',
+        fillSeriesColor: false,
+      }
+    }
   }
 
 }
