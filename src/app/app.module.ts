@@ -12,6 +12,7 @@ import { SparkComponent } from './spark/spark.component';
 import { CardComponent } from './card/card.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SparkBankBalanceComponent } from './spark-bank-balance/spark-bank-balance.component';
+import { ChartsNegotiationsComponent } from './charts-negotiations/charts-negotiations.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, NgApexchartsModule, FontAwesomeModule],
@@ -25,6 +26,7 @@ import { SparkBankBalanceComponent } from './spark-bank-balance/spark-bank-balan
     SparkComponent,
     SparkBankBalanceComponent,
     CardComponent,
+    ChartsNegotiationsComponent
   ],
   bootstrap: [AppComponent],
 })

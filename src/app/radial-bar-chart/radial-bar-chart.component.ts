@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
 import {
   ApexChart,
   ApexFill,
@@ -30,12 +30,19 @@ export interface ChartOptions {
   templateUrl: './radial-bar-chart.component.html',
   styleUrls: ['./radial-bar-chart.component.css'],
 })
+
 export class RadialBarChartComponent implements OnInit {
   @ViewChild('chart') chart: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
-  public profitValue = 35733576.79
 
+  @Input() value: any;
+  @Input() name: any;
+  @Input() percentage: any;
   constructor() {
+   
+  }
+
+  ngOnInit() {
     this.chartOptions = {
       chart: {
         height: 480,
@@ -43,7 +50,7 @@ export class RadialBarChartComponent implements OnInit {
         foreColor: '#FFF'
       },
 
-      series: [42.9],
+      series: [Number(this.percentage)],
       colors: ['#61f168'],
       plotOptions: {
         radialBar: {
@@ -74,17 +81,17 @@ export class RadialBarChartComponent implements OnInit {
         lineCap: 'round',
       },
       titles: {
-        text: 'Lucro',
+        text: this.name,
         style:{
           fontSize: '20'
         }
       },
-      labels: ['Lucro'],
+      labels: [this.name],
       legend: {
         show: true,
         position: 'bottom',
         fontSize: '16',
-        formatter: (e) => `${e} - R$ ${round(this.profitValue)}`
+        formatter: (e) => `${e} - R$ ${round(this.value)}`
       },
       tooltip:{
         enabled: true,
@@ -97,6 +104,4 @@ export class RadialBarChartComponent implements OnInit {
       }
     };
   }
-
-  ngOnInit() {}
 }

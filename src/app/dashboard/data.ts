@@ -57,16 +57,16 @@ export const balance = [
 export const round = (value: number) =>{
   const positiveValue = Math.abs(value)
 
-  if(!positiveValue){
-    return '0'
+  if(!positiveValue || positiveValue < 999){
+    return String(value)
   }
 
   if(positiveValue > 999 && positiveValue < 999999){
-    return Math.floor(value/1000) + ' K'
+    return (value/1000).toFixed(2) + ' K'
   }else if(positiveValue > 999999 && positiveValue < 999999999){
-    return Math.floor(value/1000000) + ' M'
+    return (value/1000000).toFixed(2) + ' M'
   }else{
-    return Math.floor(value/1000000000) + ' B'
+    return (value/1000000000).toFixed(2) + ' B'
   }
 }
 

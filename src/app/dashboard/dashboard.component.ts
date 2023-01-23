@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApexAxisChartSeries } from 'ng-apexcharts';
 import { balance, dolar, financialBalance } from './data';
 import { SparkSharedEventsService } from '../spark/service/spark-shared-events.service';
-import { faFilter, faSackDollar, faTractor, faTruckRampBox, faWarehouse, faWeightScale } from '@fortawesome/free-solid-svg-icons';
+import { faBrazilianRealSign, faDollarSign, faFilter, faSackDollar, faTractor, faTruckRampBox, faWarehouse, faWeightScale } from '@fortawesome/free-solid-svg-icons';
 import { SparkBankBalanceSharedEventsService } from '../spark-bank-balance/service/spark-shared-events.service';
 
 @Component({
@@ -30,6 +30,8 @@ export class DashboardComponent implements OnInit {
   public iconLoad = faTruckRampBox
   public iconWareHouse = faWarehouse
   public iconFilter = faFilter
+  public iconDolar = faDollarSign
+  public iconReal = faBrazilianRealSign
 
   public romaneio = [
 		{
@@ -51,6 +53,23 @@ export class DashboardComponent implements OnInit {
 			warehouseBalance: 15530810
 		}
 	];
+
+  public negotiation = [
+		{
+			bagsSold: 1454013.8,
+			bagsInStock: 720328.1,
+			bagsDelivered: 1051130,
+			bagsToDeliver: 402883.8,
+			avgPriceBRL: 0,
+			avgPriceUSD: 0,
+			avgBagPriceBRL: 0,
+			avgBagPriceUSD: 0
+		}
+	]
+
+  public value = this.negotiation[0].bagsDelivered
+  public percentage = ((this.negotiation[0].bagsDelivered *100)/this.negotiation[0].bagsSold).toFixed(2)
+  public negotiationName = 'Sacas Entregues' 
 
   constructor(
     private sparkSharedEventsService: SparkSharedEventsService,
@@ -79,11 +98,11 @@ export class DashboardComponent implements OnInit {
     }
   
     if(positiveValue > 999 && positiveValue < 999999){
-      return Math.floor(value/1000) + ' K'
+      return (value/1000).toFixed(2) + ' K'
     }else if(positiveValue > 999999 && positiveValue < 999999999){
-      return Math.floor(value/1000000) + ' M'
+      return (value/1000000).toFixed(2) + ' M'
     }else{
-      return Math.floor(value/1000000000) + ' B'
+      return (value/1000000000).toFixed(2) + ' B'
     }
   }
 }

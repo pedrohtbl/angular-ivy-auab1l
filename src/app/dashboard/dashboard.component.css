@@ -25,7 +25,11 @@ strong {
   margin: 0 auto;
 }
 
-ul{
+.content-area h4{
+  color: #fff
+}
+
+ul {
   list-style: none;
 }
 
@@ -34,7 +38,7 @@ ul{
   padding: 25px 20px;
 }
 
-.container{
+.container {
   height: 100px;
   display: flex;
   flex-direction: column;
@@ -54,6 +58,15 @@ ul{
   border-radius: 5px;
 }
 
+.spark-box {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-shadow: 0 1px 1px 1px #666;
+  box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.08);
+  position: relative;
+  border-radius: 5px;
+}
+
 .sparkboxes strong {
   position: relative;
   z-index: 3;
@@ -61,65 +74,81 @@ ul{
   color: #fff;
 }
 
-.sparkboxes .box1 {
+.box1 {
   background-image: linear-gradient(135deg, #abdcff 10%, #0396ff 100%);
 }
 
-.sparkboxes .box2 {
+.box2 {
   background-image: linear-gradient(135deg, #73bd8f 10%, #61f168 100%);
 }
 
-.sparkboxes .box3 {
-  background-image: linear-gradient(135deg, #FFD3A5 10%, #dac761 100%);
+.box3 {
+  background-image: linear-gradient(135deg, #ffd3a5 10%, #dac761 100%);
 }
 
-.sparkboxes .box4 {
+.box4 {
   background-image: linear-gradient(135deg, #d881a2 10%, #f74848 100%);
 }
 
-.small-card{
+.small-card {
   padding-left: 10px;
   background: transparent;
   color: #fff;
   border-left: #dac761 solid 4px;
 }
 
-.output-border{
+.output-border {
   border-left: #f74848 solid 4px;
 }
 
-.input-border{
+.input-border {
   border-left: #61f168 solid 4px;
 }
 
-.container-icon>p{
+.container-icon > p {
   margin: 0;
   line-height: 1;
   font-weight: bold;
 }
 
-.container-icon{
+.container-icon {
   display: flex;
   height: 20px;
   margin-bottom: 3px;
 }
 
-.container-icon-title{
+.container-icon > fa-icon {
+  position: relative;
+  bottom: 4px;
+}
+
+.container-icon-title {
   display: flex;
   justify-content: space-between;
   color: #fff;
 }
 
-.container-icon>p{
+.container-icon > p {
   margin-right: 10px;
 }
 
-.container-value{
+.container-value {
   display: flex;
   flex-direction: column;
 }
 
-.container-value>span{
+.row >h4{
+  border-bottom: 3px solid #0396ff;
+  padding-bottom: 2px;
+}
+
+.row > h5{
+  font-weight: 400;
+  font-size: 16px;
+  color: #fff;
+}
+
+.container-value > span {
   margin: 0;
   font-size: 12px;
 }

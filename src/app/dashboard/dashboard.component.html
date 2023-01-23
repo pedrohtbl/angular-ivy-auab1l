@@ -32,6 +32,7 @@
               [icon]="cashierBankIcon"
               name="Saldo Caixa Banco Atual"
               [value]="bankBalance"
+              isMonetary="true"
             ></app-card>
           </div>
 
@@ -41,6 +42,7 @@
               [icon]="cashierBankIcon"
               name="A Receber"
               [value]="receiveBalance"
+              isMonetary="true"
             ></app-card>
           </div>
 
@@ -50,6 +52,7 @@
               [icon]="cashierBankIcon"
               name="A Pagar"
               [value]="payBalance"
+              isMonetary="true"
             ></app-card>
           </div>
         </div>
@@ -57,7 +60,11 @@
         <div class="row mt-4">
           <div class="col-md-6">
             <div class="box shadow mt-4">
-              <app-radial-bar-chart></app-radial-bar-chart>
+              <app-radial-bar-chart
+                value="35733576.79"
+                name="Lucro"
+                percentage="42.9"
+              ></app-radial-bar-chart>
             </div>
           </div>
           <div class="col-md-6">
@@ -119,8 +126,8 @@
                     <fa-icon [icon]="iconLoad"></fa-icon>
                   </div>
                   <div class="container-value">
-                    <span>Saída (KG): {{round(romaneio[0].inputKg)}}</span>
-                    <span>Saída (Sacas): {{round(romaneio[0].inputBags)}}</span>
+                    <span>Entrada (KG): {{round(romaneio[0].inputKg)}}</span>
+                    <span>Entrada (Sacas): {{round(romaneio[0].inputBags)}}</span>
                     <span>Contagem de Cargas (Sacas): {{round(romaneio[0].inputLoadCount)}}</span>
                     <span>Média de Qtde de Sacas por Carga: {{round(romaneio[0].inputLoadAvgBags)}}</span>
                   </div>
@@ -140,7 +147,161 @@
               </ul>
             </div>
           </div>
+        </div>
 
+
+        <div class="row mt-4">
+          <h4>Romaneios</h4>
+        </div>
+
+        <div class="row mt-4">
+          <div class="col-md-3">
+            <app-card
+              class="container box spark-box box1"
+              [icon]="iconWeigth"
+              name="Peso Líquido Pendente (Kg)"
+              [value]="romaneio[0].pendingKg"
+            ></app-card>
+          </div>
+          <div class="col-md-3">
+            <app-card
+              class="container box spark-box box1"
+              [icon]="iconWeigth"
+              name="Peso Líquido Pendente (Sacas)"
+              [value]="romaneio[0].pendingBags"
+            ></app-card>
+          </div>
+          <div class="col-md-3">
+            <app-card
+              class="container box spark-box box1"
+              [icon]="iconWeigth"
+              name="Sacas Devolvidas"
+              [value]="romaneio[0].returnKg"
+            ></app-card>
+          </div>
+          <div class="col-md-3">
+            <app-card
+              class="container box spark-box box1"
+              [icon]="iconWeigth"
+              name="Saldo Depósito"
+              [value]="romaneio[0].warehouseBalance"
+            ></app-card>
+          </div>
+
+        </div>
+
+        <div class="row mt-4">
+          <h5>Sacas Colheita</h5>
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-3">
+            <app-card
+              class="container box spark-box box3"
+              [icon]="iconTractor"
+              name="Colheita (Kg)"
+              [value]="romaneio[0].harvestKg"
+            ></app-card>
+          </div>
+          <div class="col-md-3">
+            <app-card
+              class="container box spark-box box3"
+              [icon]="iconTractor"
+              name="Colheita (Sacas)"
+              [value]="romaneio[0].harvestBags"
+            ></app-card>
+          </div>
+          <div class="col-md-3">
+            <app-card
+              class="container box spark-box box3"
+              [icon]="iconLoad"
+              name="Contagem de Cargas"
+              [value]="romaneio[0].harvestLoadCount"
+            ></app-card>
+          </div>
+          <div class="col-md-3">
+            <app-card
+              class="container box spark-box box3"
+              [icon]="iconLoad"
+              name="Média de Qtde de Sacas por Carga"
+              [value]="romaneio[0].harvestLoadAvgBags"
+            ></app-card>
+          </div>
+        </div>
+
+        <div class="row mt-4">
+          <h5>Sacas Saída</h5>
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-3">
+            <app-card
+              class="container box spark-box box4"
+              [icon]="iconLoad"
+              name="Saídas (Kg)"
+              [value]="romaneio[0].outputKg"
+            ></app-card>
+          </div>
+          <div class="col-md-3">
+            <app-card
+              class="container box spark-box box4"
+              [icon]="iconLoad"
+              name="Saídas (Sacas)"
+              [value]="romaneio[0].outputBags"
+            ></app-card>
+          </div>
+          <div class="col-md-3">
+            <app-card
+              class="container box spark-box box4"
+              [icon]="iconLoad"
+              name="Contagem de Cargas"
+              [value]="romaneio[0].outputLoadCount"
+            ></app-card>
+          </div>
+          <div class="col-md-3">
+            <app-card
+              class="container box spark-box box4"
+              [icon]="iconLoad"
+              name="Média de Qtde de Sacas por Carga"
+              [value]="romaneio[0].outputLoadAvgBags"
+            ></app-card>
+          </div>
+        </div>
+
+        <div class="row mt-4">
+          <h5>Sacas Entrada</h5>
+        </div>
+        <div class="row mt-4">
+          <div class="col-md-3">
+            <app-card
+              class="container box spark-box box2"
+              [icon]="iconLoad"
+              name="Entrada (Kg)"
+              [value]="romaneio[0].inputKg"
+            ></app-card>
+          </div>
+          <div class="col-md-3">
+            <app-card
+              class="container box spark-box box2"
+              [icon]="iconLoad"
+              name="Entrada (Sacas)"
+              [value]="romaneio[0].inputBags"
+            ></app-card>
+          </div>
+          <div class="col-md-3">
+            <app-card
+              class="container box spark-box box2"
+              [icon]="iconLoad"
+              name="Contagem de Cargas"
+              [value]="romaneio[0].inputLoadCount"
+            ></app-card>
+          </div>
+          <div class="col-md-3">
+            <app-card
+              class="container box spark-box box2"
+              [icon]="iconLoad"
+              name="Média de Qtde de Sacas por Carga"
+              [value]="romaneio[0].inputLoadAvgBags"
+            ></app-card>
+          </div>
         </div>
 
         <div class="row mt-4">
@@ -154,7 +315,96 @@
               <app-area-chart></app-area-chart>
             </div>
           </div>
+          <div class="col-md-6">
+            <div class="box shadow mt-4">
+              <app-line-chart></app-line-chart>
+            </div>
+          </div>
         </div>
+
+        <div class="row mt-4">
+          <div class="col-md-6">
+            <div class="box shadow mt-4">
+              <app-radial-bar-chart
+                [value]="value"
+                [name]="negotiationName"
+                [percentage]="percentage"
+              ></app-radial-bar-chart>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="box shadow mt-4">
+              <ul class="col-md-12">
+                <div class="container-icon-title">
+                  <h4>Negociações</h4>
+                  <fa-icon [icon]="iconFilter"></fa-icon>
+                </div>
+                <li class="small-card output-border mt-4">
+                  <div class="container-icon">
+                    <p>Sacas Vendidas</p>
+                    <fa-icon [icon]="iconDolar"></fa-icon>
+                  </div>
+                  <div class="container-value">
+                    <span>Qtd: {{round(negotiation[0].bagsSold)}}</span>
+                  </div>
+                </li>
+
+                <li class="small-card mt-4">
+                  <div class="container-icon">
+                    <p>Sacas Estoque</p>
+                    <fa-icon [icon]="iconWareHouse"></fa-icon>
+                  </div>
+                  <div class="container-value">
+                    <span>Qtd: {{round(negotiation[0].bagsInStock)}}</span>
+                  </div>
+                </li>
+
+                <li class="small-card input-border mt-4">
+                  <div class="container-icon">
+                    <p>Sacas Entregues</p>
+                    <fa-icon [icon]="iconLoad"></fa-icon>
+                  </div>
+                  <div class="container-value">
+                    <span>Qtd: {{round(negotiation[0].bagsDelivered)}}</span>
+                  </div>
+                </li>
+
+                <li class="small-card mt-4">
+                  <div class="container-icon">
+                    <p>Sacas a Entregar</p>
+                    <fa-icon [icon]="iconLoad"></fa-icon>
+                  </div>
+                  <div class="container-value">
+                    <span>Qtd: {{round(negotiation[0].bagsToDeliver)}}</span>
+                  </div>
+                </li>
+
+                <li class="small-card input-border mt-4">
+                  <div class="container-icon">
+                    <p>Preço Médio das Negociações (Reais)</p>
+                    <fa-icon [icon]="iconReal"></fa-icon>
+                  </div>
+                  <div class="container-value">
+                    <span>Qtd: {{round(negotiation[0].avgPriceBRL)}}</span>
+                  </div>
+                </li>
+
+                <li class="small-card input-border mt-4">
+                  <div class="container-icon">
+                    <p>Preço Médio das Negociações (Dólar)</p>
+                    <fa-icon [icon]="iconDolar"></fa-icon>
+                  </div>
+                  <div class="container-value">
+                    <span>Qtd: {{round(negotiation[0].avgPriceUSD)}}</span>
+                  </div>
+                </li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+
+
       </div>
     </div>
   </div>
