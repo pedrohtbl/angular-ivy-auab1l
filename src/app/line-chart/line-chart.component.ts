@@ -35,7 +35,10 @@ export class LineChartComponent implements OnInit {
   @ViewChild('chart') chart: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
 
+  @Input() title: any
+  @Input() subtitle: any
   @Input() series: any
+  @Input() type: any
   constructor() {
   }
 
@@ -44,7 +47,7 @@ export class LineChartComponent implements OnInit {
       series: this.series,
       chart: {
         height: 350,
-        type: 'line',
+        type: this.type,
         foreColor: '#ccc',
         toolbar: {
           show: false,
@@ -62,8 +65,11 @@ export class LineChartComponent implements OnInit {
         width: 2,
       },
       title: {
-        text: 'Romaneios',
+        text: this.title,
         align: 'left',
+      },
+      subtitle:{
+        text: this.subtitle
       },
       markers: {
         size: 0,

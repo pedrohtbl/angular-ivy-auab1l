@@ -69,6 +69,44 @@
           </div>
           <div class="col-md-6">
             <div class="box shadow mt-4">
+              <app-barchart></app-barchart>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="box shadow mt-4">
+            <app-line-chart
+            [series]="mountLineSeries()"
+            title="Romaneios"
+            type="line"
+            ></app-line-chart>
+          </div>
+        </div>
+
+        <div class="row mt-4">
+          <div class="col-md-6">
+            <div class="box shadow mt-4">
+              <app-line-chart
+              [series]="mountLineSeries2()"
+              title="Romaneios"
+              subtitle="Valores Brutos"
+              type="area"
+              ></app-line-chart>
+            </div>
+            <div class="box shadow mt-4">
+              <app-line-chart
+              [series]="mountLineSeriesAvgr()"
+              title="Romaneios"
+              subtitle="Médias e Contagens"
+              type="line"
+              ></app-line-chart>
+            </div>
+
+          </div>
+
+          <div class="col-md-6">
+            <div class="box shadow mt-4">
               <ul class="col-md-12">
                 <div class="container-icon-title">
                   <h4>Romaneios</h4>
@@ -146,14 +184,6 @@
 
               </ul>
             </div>
-          </div>
-        </div>
-
-        <div class="col-md-6">
-          <div class="box shadow mt-4">
-            <app-line-chart
-            [series]="mountLineSeries()"
-            ></app-line-chart>
           </div>
         </div>
 
@@ -309,19 +339,6 @@
               name="Média de Qtde de Sacas por Carga"
               [value]="romaneio[0].inputLoadAvgBags"
             ></app-card>
-          </div>
-        </div>
-
-        <div class="row mt-4">
-          <div class="col-md-6">
-            <div class="box shadow mt-4">
-              <app-barchart></app-barchart>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="box shadow mt-4">
-              <app-area-chart></app-area-chart>
-            </div>
           </div>
         </div>
 

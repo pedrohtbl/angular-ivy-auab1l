@@ -156,6 +156,126 @@ export class DashboardComponent implements OnInit {
     },
   ];
 
+  public mountLineSeries2() {
+    const series = [
+      {
+        name: 'Peso Líquido Pendente',
+        data: [],
+      },
+      {
+        name: 'Colheita',
+        data: [],
+      },
+      {
+        name: 'Saídas',
+        data: [],
+      },
+      {
+        name: 'Entradas',
+        data: [],
+      },
+      {
+        name: 'Sacas Devolvidas',
+        data: [],
+      },
+      {
+        name: 'Saldo Depósito',
+        data: [],
+      },
+    ];
+    this.romaneioPerDate.forEach((obj) => {
+      for (let prop in obj) {
+        switch (prop) {
+          case 'pendingBags':
+            series[0].data.push(obj[prop]);
+            break;
+
+          case 'harvestBags':
+          series[1].data.push(obj[prop]);
+          break;
+
+          case 'outputBags':
+          series[2].data.push(obj[prop]);
+          break;
+
+          case 'inputBags':
+          series[3].data.push(obj[prop]);
+          break;
+
+          case 'returnKg':
+          series[4].data.push(obj[prop]);
+          break;
+
+          case 'warehouseBalance':
+          series[5].data.push(obj[prop]);
+          break;
+        }
+      }
+    });
+
+    return series;
+  }
+
+  public mountLineSeriesAvgr() {
+    const series = [
+      {
+        name: 'Contagem de Cargas Colheita',
+        data: [],
+      },
+      {
+        name: 'Média de Sacas por Carga Colheita',
+        data: [],
+      },
+      {
+        name: 'Contagem de Cargas Saídas',
+        data: [],
+      },
+      {
+        name: 'Média de Sacas por Carga Saída',
+        data: [],
+      },
+      {
+        name: 'Contagem de Cargas Entradas',
+        data: [],
+      },
+      {
+        name: 'Média de Sacas por Carga Entradas',
+        data: [],
+      },
+    ];
+    this.romaneioPerDate.forEach((obj) => {
+      for (let prop in obj) {
+        switch (prop) {
+          case 'harvestLoadCount':
+          series[0].data.push(obj[prop]);
+          break;
+
+          case 'harvestLoadAvgBags':
+          series[1].data.push(obj[prop]);
+          break;
+
+          case 'outputLoadCount':
+          series[2].data.push(obj[prop]);
+          break;
+
+          case 'outputLoadAvgBags':
+          series[3].data.push(obj[prop]);
+          break;
+
+          case 'inputLoadCount':
+          series[4].data.push(obj[prop]);
+          break;
+
+          case 'inputLoadAvgBags':
+          series[5].data.push(obj[prop]);
+          break;
+        }
+      }
+    });
+
+    return series;
+  }
+
   public mountLineSeries() {
     const series = [
       {
