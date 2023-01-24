@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@angular/animations": "^15.1.1",
+    "@angular/cdk": "^15.0.2",
     "@angular/common": "^15.1.1",
     "@angular/compiler": "^15.1.1",
     "@angular/core": "^15.1.1",
@@ -22,6 +23,9 @@
     "@fortawesome/angular-fontawesome": "^0.12.1",
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
+    "@po-ui/ng-components": "^15.0.0",
+    "@po-ui/ng-templates": "^15.0.0",
+    "@po-ui/style": "15.0.0",
     "apexcharts": "^3.36.3",
     "ng-apexcharts": "^1.7.4",
     "rxjs": "^7.8.0",

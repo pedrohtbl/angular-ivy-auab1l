@@ -13,9 +13,19 @@ import { CardComponent } from './card/card.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SparkBankBalanceComponent } from './spark-bank-balance/spark-bank-balance.component';
 import { ChartsNegotiationsComponent } from './charts-negotiations/charts-negotiations.component';
+import { PoFieldModule, PoModule, PoPageModule, PoTabsModule } from '@po-ui/ng-components';
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, NgApexchartsModule, FontAwesomeModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    NgApexchartsModule,
+    FontAwesomeModule,
+    PoModule,
+    PoFieldModule,
+    PoPageModule,
+    PoTabsModule,
+  ],
   declarations: [
     AppComponent,
     DashboardComponent,
@@ -26,7 +36,7 @@ import { ChartsNegotiationsComponent } from './charts-negotiations/charts-negoti
     SparkComponent,
     SparkBankBalanceComponent,
     CardComponent,
-    ChartsNegotiationsComponent
+    ChartsNegotiationsComponent,
   ],
   bootstrap: [AppComponent],
 })
