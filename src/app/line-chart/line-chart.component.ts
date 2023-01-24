@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import {
   ApexAxisChartSeries,
   ApexChart,
@@ -8,13 +8,16 @@ import {
   ApexStroke,
   ApexTitleSubtitle,
   ApexXAxis,
+  ApexYAxis,
   ChartComponent,
 } from 'ng-apexcharts';
+import { round } from '../dashboard/data';
 
 export interface ChartOptions {
   series: ApexAxisChartSeries;
   chart: ApexChart;
   xaxis: ApexXAxis;
+  yaxis: ApexYAxis;
   dataLabels: ApexDataLabels;
   grid: ApexGrid;
   stroke: ApexStroke;
@@ -32,22 +35,13 @@ export class LineChartComponent implements OnInit {
   @ViewChild('chart') chart: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
 
+  @Input() series: any
   constructor() {
+  }
+
+  ngOnInit() {
     this.chartOptions = {
-      series: [
-        {
-          name: 'Custo Total Planejado',
-          data: [1, 15, 26, 20, 33, 27],
-        },
-        {
-          name: 'Custo Médio por Ha Planejado',
-          data: [3, 33, 21, 42, 19, 32],
-        },
-        {
-          name: 'Custos Realizado de Talhões',
-          data: [0, 39, 52, 11, 29, 43],
-        },
-      ],
+      series: this.series,
       chart: {
         height: 350,
         type: 'line',
@@ -61,45 +55,39 @@ export class LineChartComponent implements OnInit {
       },
       dataLabels: {
         enabled: false,
+        formatter: round
       },
       stroke: {
-        curve: 'smooth',
+        curve: 'straight',
         width: 2,
       },
       title: {
-        text: 'Custos Diretos',
+        text: 'Romaneios',
         align: 'left',
       },
-      subtitle: {
-        text: 'Estatísticas',
-      },
       markers: {
-        size: 6,
-        strokeWidth: 0,
-        hover: {
-          size: 9,
-        },
+        size: 0,
       },
       grid: {
         row: {
           colors: ['transparent'],
         },
       },
+      yaxis:{
+        labels:{
+          formatter: round
+        }
+      },
       xaxis: {
+        type: 'datetime',
         categories: [
-          'Jan',
-          'Feb',
-          'Mar',
-          'Apr',
-          'May',
-          'Jun',
-          'Jul',
-          'Aug',
-          'Sep',
+          '2023-01-20',
+          '2023-01-21',
+          '2023-01-22',
+          '2023-01-23',
+          '2023-01-24',
         ],
       },
     };
   }
-
-  ngOnInit() {}
 }

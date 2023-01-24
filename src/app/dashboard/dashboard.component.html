@@ -149,6 +149,14 @@
           </div>
         </div>
 
+        <div class="col-md-6">
+          <div class="box shadow mt-4">
+            <app-line-chart
+            [series]="mountLineSeries()"
+            ></app-line-chart>
+          </div>
+        </div>
+
 
         <div class="row mt-4">
           <h4>Romaneios</h4>
@@ -313,11 +321,6 @@
           <div class="col-md-6">
             <div class="box shadow mt-4">
               <app-area-chart></app-area-chart>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="box shadow mt-4">
-              <app-line-chart></app-line-chart>
             </div>
           </div>
         </div>

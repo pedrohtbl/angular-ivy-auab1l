@@ -56,7 +56,6 @@ export const balance = [
 
 export const round = (value: number) =>{
   const positiveValue = Math.abs(value)
-
   if(!positiveValue || positiveValue < 999){
     return String(value)
   }
