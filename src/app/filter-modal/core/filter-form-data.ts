@@ -1,5 +1,5 @@
 export class FilterFormData {
-  public crop: any[] = [];
+  public crop: number = null;
   public culture: any[] = [];
   public ruralProperty: any[] = [];
 

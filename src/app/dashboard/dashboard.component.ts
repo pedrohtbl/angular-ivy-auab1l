@@ -13,6 +13,7 @@ import {
   faWeightScale,
 } from '@fortawesome/free-solid-svg-icons';
 import { SparkBankBalanceSharedEventsService } from '../spark-bank-balance/service/spark-shared-events.service';
+import { FilterSearchSharedEventsService } from '../filter-modal/service/filter-search-shared-events.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -155,6 +156,13 @@ export class DashboardComponent implements OnInit {
       warehouseBalance: 15530810,
     },
   ];
+
+  constructor(
+    private sparkSharedEventsService: SparkSharedEventsService,
+    private sparkBankBalanceSharedEventsService: SparkBankBalanceSharedEventsService,
+    public filterSearchSharedEventsService: FilterSearchSharedEventsService
+  ) {}
+
 
   public mountLineSeries2() {
     const series = [
@@ -405,11 +413,6 @@ export class DashboardComponent implements OnInit {
     (this.negotiation[0].bagsDelivered * 100) /
     this.negotiation[0].bagsSold
   ).toFixed(2);
-
-  constructor(
-    private sparkSharedEventsService: SparkSharedEventsService,
-    private sparkBankBalanceSharedEventsService: SparkBankBalanceSharedEventsService
-  ) {}
 
   ngOnInit() {
     this.sendData();

@@ -1,8 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { PoModalAction, PoModalComponent } from '@po-ui/ng-components';
 import { Subscription } from 'rxjs';
-import { crops, cultures, ruralPropertys } from '../dashboard/data';
+import { crops, cultures, filter, ruralPropertys } from '../dashboard/data';
 import { FilterFormData } from './core/filter-form-data';
 import { FilterSearchSharedEventsService } from './service/filter-search-shared-events.service';
 
@@ -48,6 +48,7 @@ export class FilterModalComponent implements OnInit {
   ]
 
   @ViewChild('filterModal', { static: true }) public poModal: PoModalComponent;
+  @Output() response = new EventEmitter();
   constructor(
     public filterSearchSharedEventsService: FilterSearchSharedEventsService
   ) {
@@ -61,7 +62,13 @@ export class FilterModalComponent implements OnInit {
   ngOnInit() {}
 
   public confirmSearch() {
-    return ''
+    this.response.emit(filter({
+      crop: this.formFilter.controls.crop.value,
+      culture: this.formFilter.controls.culture.value,
+      ruralProperty: this.formFilter.controls.ruralProperty.value,
+    })) 
+
+    this.closeModal()
   }
 
   public openModal(data: any) {
@@ -75,7 +82,7 @@ export class FilterModalComponent implements OnInit {
 
   public resetModal() {
     this.formFilter.controls.culture.setValue([]);
-    this.formFilter.controls.crop.setValue([]);
+    this.formFilter.controls.crop.setValue(null);
     this.formFilter.controls.ruralProperty.setValue([]);
   }
 
