@@ -405,6 +405,12 @@ export class DashboardComponent implements OnInit {
     },
   ];
 
+  public reciverFilter(data: any) {
+    if (data) {
+      this.romaneioPerDate = data;
+    }
+  }
+
   public percentageToDeliver = (
     (this.negotiation[0].bagsToDeliver * 100) /
     this.negotiation[0].bagsSold

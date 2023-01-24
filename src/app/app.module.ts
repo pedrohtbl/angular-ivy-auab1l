@@ -15,6 +15,7 @@ import { SparkBankBalanceComponent } from './spark-bank-balance/spark-bank-balan
 import { ChartsNegotiationsComponent } from './charts-negotiations/charts-negotiations.component';
 import { PoFieldModule, PoModule, PoPageModule, PoTabsModule } from '@po-ui/ng-components';
 import { FilterModalComponent } from './filter-modal/filter-modal.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { FilterModalComponent } from './filter-modal/filter-modal.component';
     PoFieldModule,
     PoPageModule,
     PoTabsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   declarations: [
     AppComponent,
