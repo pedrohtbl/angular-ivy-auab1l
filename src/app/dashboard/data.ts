@@ -104,3 +104,48 @@ export const financial = [
     ],
   },
 ];
+
+export const crops = [
+  {
+    description: 'crop 1',
+    id: 1,
+  },
+  {
+    description: 'crop 2',
+    id: 2,
+  },
+  {
+    description: 'crop 3',
+    id: 3,
+  },
+]
+
+export const cultures = [
+  {
+    description: 'culture 1',
+    id: 1,
+  },
+  {
+    description: 'culture 2',
+    id: 2,
+  },
+  {
+    description: 'culture 3',
+    id: 3,
+  },
+]
+
+export const ruralPropertys = [
+  {
+    description: 'ruralProperty 1',
+    id: 1,
+  },
+  {
+    description: 'ruralProperty 2',
+    id: 2,
+  },
+  {
+    description: 'ruralProperty 3',
+    id: 3,
+  },
+]

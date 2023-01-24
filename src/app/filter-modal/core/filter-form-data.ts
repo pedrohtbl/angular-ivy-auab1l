@@ -1,5 +1,7 @@
 export class FilterFormData {
-  public item: number = null;
+  public crop: any[] = [];
+  public culture: any[] = [];
+  public ruralProperty: any[] = [];
 
   constructor(
     formData?: any

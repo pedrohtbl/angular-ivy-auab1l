@@ -1,0 +1,45 @@
+<po-modal
+  #filterModal
+  id="filterModal"
+  p-size="xl"
+  p-title="Filtro"
+  [p-primary-action]="confirm"
+>
+  <form [formGroup]="formFilter">
+    <div class="po-row">
+      <po-combo
+        class="po-md-7"
+        name="crop"
+        p-icon="po-icon-search"
+        p-label="Safra/Negócios*"
+        (p-change)="changeCrop()"
+        [p-options]="comboCropService"
+        formControlName="crop"
+        p-placeholder="Selecione ou Digite"
+      >
+      </po-combo>
+      <po-combo
+        class="po-md-7"
+        name="culture"
+        p-icon="po-icon-search"
+        p-label="Cultura*"
+        (p-change)="changeCulture()"
+        [p-options]="comboCultureService"
+        formControlName="culture"
+        p-placeholder="Selecione ou Digite"
+      >
+      </po-combo>
+      <po-combo
+        class="po-md-7"
+        name="ruralProperty"
+        p-icon="po-icon-search"
+        p-label="Safra/Negócios*"
+        (p-change)="changeRuralProperty()"
+        [p-options]="comboRuralPropertyService"
+        formControlName="ruralProperty"
+        p-placeholder="Selecione ou Digite"
+      >
+      </po-combo>
+    </div>
+  </form>
+</po-modal>

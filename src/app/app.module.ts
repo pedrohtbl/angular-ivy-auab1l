@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -26,6 +26,7 @@ import { FilterModalComponent } from './filter-modal/filter-modal.component';
     PoFieldModule,
     PoPageModule,
     PoTabsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     AppComponent,
