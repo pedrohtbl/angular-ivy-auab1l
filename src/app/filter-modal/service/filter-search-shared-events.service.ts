@@ -7,7 +7,7 @@ import { Observable, Subject } from 'rxjs';
 export class FilterSearchSharedEventsService {
   private subject = new Subject<any>();
 
-  public sendClickEvent(data: any) {
+  public sendClickEvent(data?: any) {
     this.subject.next(data);
   }
 

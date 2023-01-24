@@ -411,6 +411,10 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+  public openModal(){
+    this.filterSearchSharedEventsService.sendClickEvent()
+  }
+
   public percentageToDeliver = (
     (this.negotiation[0].bagsToDeliver * 100) /
     this.negotiation[0].bagsSold
