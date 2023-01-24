@@ -14,6 +14,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SparkBankBalanceComponent } from './spark-bank-balance/spark-bank-balance.component';
 import { ChartsNegotiationsComponent } from './charts-negotiations/charts-negotiations.component';
 import { PoFieldModule, PoModule, PoPageModule, PoTabsModule } from '@po-ui/ng-components';
+import { FilterModalComponent } from './filter-modal/filter-modal.component';
 
 @NgModule({
   imports: [
@@ -37,6 +38,7 @@ import { PoFieldModule, PoModule, PoPageModule, PoTabsModule } from '@po-ui/ng-c
     SparkBankBalanceComponent,
     CardComponent,
     ChartsNegotiationsComponent,
+    FilterModalComponent
   ],
   bootstrap: [AppComponent],
 })
