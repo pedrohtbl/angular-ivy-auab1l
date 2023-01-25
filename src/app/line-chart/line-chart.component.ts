@@ -96,4 +96,8 @@ export class LineChartComponent implements OnInit {
       },
     };
   }
+
+  public updateSeries(series){
+    this.chartOptions.series = series
+  }
 }

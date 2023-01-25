@@ -14,6 +14,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { SparkBankBalanceSharedEventsService } from '../spark-bank-balance/service/spark-shared-events.service';
 import { FilterSearchSharedEventsService } from '../filter-modal/service/filter-search-shared-events.service';
+import { LineChartComponent } from '../line-chart/line-chart.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -160,6 +161,7 @@ export class DashboardComponent implements OnInit {
   constructor(
     private sparkSharedEventsService: SparkSharedEventsService,
     private sparkBankBalanceSharedEventsService: SparkBankBalanceSharedEventsService,
+    private lineChart: LineChartComponent,
     public filterSearchSharedEventsService: FilterSearchSharedEventsService
   ) {}
 
@@ -224,7 +226,7 @@ export class DashboardComponent implements OnInit {
     return series;
   }
 
-  public mountLineSeriesAvgr() {
+  public mountLineSeriesAvrg() {
     const series = [
       {
         name: 'Contagem de Cargas Colheita',
@@ -409,6 +411,9 @@ export class DashboardComponent implements OnInit {
     if (data) {
       console.log(data)
       this.romaneioPerDate = data;
+      this.lineChart.updateSeries(this.mountLineSeries2())
+      
+      this.mountLineSeriesAvrg()
     }
   }
 

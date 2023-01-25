@@ -129,6 +129,11 @@ ul {
   color: #fff;
 }
 
+.container-icon-title > fa-icon {
+  cursor: pointer;
+}
+
+
 .container-icon > p {
   margin-right: 10px;
 }
