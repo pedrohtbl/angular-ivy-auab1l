@@ -407,6 +407,7 @@ export class DashboardComponent implements OnInit {
 
   public reciverFilter(data: any) {
     if (data) {
+      console.log(data)
       this.romaneioPerDate = data;
     }
   }
@@ -427,7 +428,6 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.sendData();
     this.sendDataBalance();
-    console.log(this.mountLineSeries());
     console.log('dashboard');
   }
 
