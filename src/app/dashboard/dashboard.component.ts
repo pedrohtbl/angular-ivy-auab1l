@@ -15,6 +15,7 @@ import {
 import { SparkBankBalanceSharedEventsService } from '../spark-bank-balance/service/spark-shared-events.service';
 import { FilterSearchSharedEventsService } from '../filter-modal/service/filter-search-shared-events.service';
 import { LineChartComponent } from '../line-chart/line-chart.component';
+import { LineChartSharedEventsService } from '../line-chart/service/line-chart-shared-events.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -161,8 +162,8 @@ export class DashboardComponent implements OnInit {
   constructor(
     private sparkSharedEventsService: SparkSharedEventsService,
     private sparkBankBalanceSharedEventsService: SparkBankBalanceSharedEventsService,
-    private lineChart: LineChartComponent,
-    public filterSearchSharedEventsService: FilterSearchSharedEventsService
+    public filterSearchSharedEventsService: FilterSearchSharedEventsService,
+    private lineChartSharedEventsService: LineChartSharedEventsService,
   ) {}
 
 
@@ -411,9 +412,6 @@ export class DashboardComponent implements OnInit {
     if (data) {
       console.log(data)
       this.romaneioPerDate = data;
-      this.lineChart.updateSeries(this.mountLineSeries2())
-      
-      this.mountLineSeriesAvrg()
     }
   }
 

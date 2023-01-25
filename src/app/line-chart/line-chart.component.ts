@@ -12,6 +12,7 @@ import {
   ChartComponent,
 } from 'ng-apexcharts';
 import { round } from '../dashboard/data';
+import { LineChartSharedEventsService } from './service/line-chart-shared-events.service';
 
 export interface ChartOptions {
   series: ApexAxisChartSeries;
@@ -39,7 +40,9 @@ export class LineChartComponent implements OnInit {
   @Input() subtitle: any
   @Input() series: any
   @Input() type: any
-  constructor() {
+  constructor(
+    private lineChartSharedEventsService: LineChartSharedEventsService
+  ) {
   }
 
   ngOnInit() {
