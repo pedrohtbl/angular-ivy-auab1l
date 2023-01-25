@@ -16,6 +16,7 @@ import { ChartsNegotiationsComponent } from './charts-negotiations/charts-negoti
 import { PoFieldModule, PoModule, PoPageModule, PoTabsModule } from '@po-ui/ng-components';
 import { FilterModalComponent } from './filter-modal/filter-modal.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AreaChartRomaneioComponent } from './area-chart-romaneio/area-chart-romaneio.component';
 
 @NgModule({
   imports: [
@@ -41,7 +42,8 @@ import { HttpClientModule } from '@angular/common/http';
     SparkBankBalanceComponent,
     CardComponent,
     ChartsNegotiationsComponent,
-    FilterModalComponent
+    FilterModalComponent,
+    AreaChartRomaneioComponent
   ],
   bootstrap: [AppComponent],
 })

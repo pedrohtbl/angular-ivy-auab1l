@@ -98,6 +98,5 @@ export class BarchartComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('barchart');
   }
 }

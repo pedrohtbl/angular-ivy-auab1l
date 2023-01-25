@@ -13,7 +13,7 @@ import {
 } from 'ng-apexcharts';
 import { Subscription } from 'rxjs';
 import { round } from '../dashboard/data';
-import { LineChartSharedEventsService } from './service/line-chart-shared-events.service';
+import { AreaChartSharedEventsService } from './service/area-chart-shared-events.service';
 
 export interface ChartOptions {
   series: ApexAxisChartSeries;
@@ -29,11 +29,11 @@ export interface ChartOptions {
 }
 
 @Component({
-  selector: 'app-line-chart',
-  templateUrl: './line-chart.component.html',
-  styleUrls: ['./line-chart.component.css'],
+  selector: 'app-area-chart-romaneio',
+  templateUrl: './area-chart-romaneio.component.html',
+  styleUrls: ['./area-chart-romaneio.component.css'],
 })
-export class LineChartComponent implements OnInit {
+export class AreaChartRomaneioComponent implements OnInit {
   @ViewChild('chart') chart: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
   public subscriptions: Subscription[] = [];
@@ -42,10 +42,10 @@ export class LineChartComponent implements OnInit {
   @Input() subtitle: any
   @Input() series: any
   constructor(
-    private lineChartSharedEventsService: LineChartSharedEventsService
+    private areaChartSharedEventsService: AreaChartSharedEventsService
   ) {
     this.subscriptions.push(
-      this.lineChartSharedEventsService.getClickEvent().subscribe(data => {
+      this.areaChartSharedEventsService.getClickEvent().subscribe(data => {
         this.updateSeries(data);
       })
     );
@@ -56,7 +56,7 @@ export class LineChartComponent implements OnInit {
       series: this.series,
       chart: {
         height: 350,
-        type: 'line',
+        type: 'area',
         foreColor: '#ccc',
         toolbar: {
           show: false,

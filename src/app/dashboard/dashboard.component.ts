@@ -16,6 +16,7 @@ import { SparkBankBalanceSharedEventsService } from '../spark-bank-balance/servi
 import { FilterSearchSharedEventsService } from '../filter-modal/service/filter-search-shared-events.service';
 import { LineChartComponent } from '../line-chart/line-chart.component';
 import { LineChartSharedEventsService } from '../line-chart/service/line-chart-shared-events.service';
+import { AreaChartSharedEventsService } from '../area-chart-romaneio/service/area-chart-shared-events.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -164,6 +165,7 @@ export class DashboardComponent implements OnInit {
     private sparkBankBalanceSharedEventsService: SparkBankBalanceSharedEventsService,
     public filterSearchSharedEventsService: FilterSearchSharedEventsService,
     private lineChartSharedEventsService: LineChartSharedEventsService,
+    private areaChartSharedEventsService: AreaChartSharedEventsService
   ) {}
 
 
@@ -410,8 +412,9 @@ export class DashboardComponent implements OnInit {
 
   public reciverFilter(data: any) {
     if (data) {
-      console.log(data)
-      this.romaneioPerDate = data;
+      this.romaneioPerDate = data
+      this.lineChartSharedEventsService.sendClickEvent(this.mountLineSeries2())
+      this.areaChartSharedEventsService.sendClickEvent(this.mountLineSeriesAvrg())
     }
   }
 
@@ -431,7 +434,6 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.sendData();
     this.sendDataBalance();
-    console.log('dashboard');
   }
 
   public mountPercentageNegotiation() {

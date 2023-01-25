@@ -57,7 +57,6 @@ export class FilterModalComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('init')
   }
 
   public confirmSearch() {
